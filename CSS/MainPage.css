@@ -1,0 +1,815 @@
+/* SCP基金会Fandom中文首页CSS，2026，By Chhokmah Lu */
+
+/* 导入外部字体 */
+@import url('https://app.windfonts.com/api/css?family=wenfeng-almmdfdk:wght@regular');
+
+/* === 基本变量定义 === */
+.theme-fandomdesktop-light {
+  --main-border-color:#cdcdcdee;
+  --font-color:#000;
+  --box-bg-color:#fff;
+  --warningbox-bg-color-rgb:rgba(255,255,255,0.1); 
+  --warningbox-overlay-bg:rgba(51, 51, 51, 0.95);
+  --theme-link-color: #990000;
+  --theme-link-color--hover:#990000;
+  --theme-link-label-color:#990000;
+  --theme-link-color--rgb:153,0,0;
+  --nav-font-color:#990000;
+  --nav-font-color--hover:#fff;
+  --nav-bg-color-1:#FFF2F2;
+  --nav-border-color-1:#FFE2E2;
+  --nav-bg-color-2:#823f3f;
+  --nav-border-color-2:#823f3f;
+  --eventclip-bg-color--rbg:rgba(255,242,242,0.7);
+  --eventclip-border-color--rbg:rgba(255,226,226,0.7);
+  --sidebar-border-color:#A4A4A4ee;
+  --sidebar-media-bg-color:#FBF2FF;
+  --sidebar-new-bg-color:#E2F0EA;
+  --sidebar-item-bg-color:#fff;
+  --sidebar-maintain-bg-color:#FFF2F2;
+  --sidebar-header-color:#880000;
+  --section-header-color:#333;
+}
+.theme-fandomdesktop-dark {
+  --main-border-color:#4B4B4Bee;
+  --font-color:#fff;
+  --box-bg-color:#000;
+  --warningbox-bg-color-rgb:rgba(0,0,0,0.1); 
+  --warningbox-overlay-bg:rgba(205, 205, 205, 0.95);
+  --theme-link-color: #fff;
+  --theme-link-color--hover:#fff;
+  --theme-link-label-color:#fff;
+  --theme-link-color--rgb:255,255,255;
+  --nav-font-color:#fff;
+  --nav-font-color--hover:#000;
+  --nav-bg-color-1:#4B4B4Bee;
+  --nav-border-color-1:#2E2E2E;
+  --nav-bg-color-2:#BABABA;
+  --nav-border-color-2:#BABABA;
+  --eventclip-bg-color--rbg:rgba(75,75,75,0.7);
+  --eventclip-border-color--rbg:rgba(46,46,46,0.7);
+  --sidebar-border-color:#B0B0B0ee;
+  --sidebar-media-bg-color:#4B4B4B;
+  --sidebar-new-bg-color:#4B4B4B;
+  --sidebar-item-bg-color:#4B4B4B;
+  --sidebar-maintain-bg-color:#4B4B4B;
+  --sidebar-header-color:#fff;
+  --section-header-color:#fff;
+}
+/* === 首页左 === */
+/* = 警告栏 = */
+.warningbox {
+  font-family: Noto Serif SC, monospace; 
+  background:var(--box-bg-color); 
+  padding:15px; 
+  border-radius:4px; 
+  margin:auto; 
+  line-height:1.2;
+  font-size: 20px; 
+  position:relative; 
+  overflow:hidden; 
+  border:2px solid var(--main-border-color);
+  box-shadow: 0px 0px 10px 1px rgba(0,0,0,0.2);
+}
+.warningbox-img {
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width:100%; 
+  height:100%; 
+  opacity: 0.8; 
+  overflow:hidden;
+}
+.warningbox-content {
+  position: relative; 
+  padding:10px; 
+  background-color:var(--warningbox-bg-color-rgb); 
+  border-radius:5px; 
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+}
+.warningbox-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 15px;
+  word-wrap: break-word; 
+  white-space: normal;
+  box-sizing: border-box;
+  overflow-y: auto;
+  max-height: 100%;
+  background-color: var(--warningbox-overlay-bg); 
+  color: var(--box-bg-color);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: left;
+  font-size: 0.9rem;
+  box-sizing: border-box;
+  z-index: 10;
+  transform: translateX(-100%);
+  transition: clip-path .25s cubic-bezier(.14,.53,.4,.98), transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.warningbox:hover .warningbox-overlay {
+transform: translateX(0);
+}
+.warningbox-content, 
+.warningbox-img {
+  transition: filter 0.4s ease;
+}
+
+.warningbox:hover .warningbox-content,
+.warningbox:hover .warningbox-img {
+  filter: blur(5px);
+}
+/* = 信息栏 = */
+/* 被用于公告/最近更改/模范文章/艺作 */
+.sigmabox {
+  background: linear-gradient(135deg, #0000, #fff1, #0000), var(--box-bg-color);
+  color: var(--font-color);
+  padding: 2em 1rem 2em 1rem;
+  margin: 0.4rem 0 0.4rem 0.25rem;
+  box-shadow: 0 0.2rem 0.3rem rgba(0,0,0,.25);
+  border-left: solid 0.2em var(--main-border-color);
+  border-right: solid 0.2em var(--main-border-color);
+  border-top: solid 0.7em var(--main-border-color);
+  border-bottom: solid 0.7em var(--main-border-color);
+  font-family: Noto Serif SC;
+}
+.sigmaboxtop {
+  display: inline-flex;
+  position: absolute;
+  top: -0.4em;
+  left: -1px;
+  color: var(--main-border-color);
+  font-size: 110%;
+  font-weight: bold;
+  z-index: 4;
+}
+.sigmaboxtop::after {
+  content: "";
+  display: inline-block;
+  width: 4rem;
+  background: var(--main-border-color);
+  clip-path: polygon(0 0, 0 100%, 100% 0);
+  margin-left: -0.5px;
+}
+.title {
+  background: var(--main-border-color);
+  color: var(--theme-link-color);
+  font-family: Noto Serif SC;
+  padding: 0 1rem 0 1rem;
+}
+
+.sigmaboxtop .title:before { content: "> "; }
+
+.sigmaboxunder {
+  display: inline-flex;
+  position: absolute;
+  bottom: -0.5em;
+  right: -1px;
+  color: var(--main-border-color);
+  z-index: 4;
+}
+
+.sigmaboxunder::before {
+  content: "";
+  display: inline-block;
+  width: 4rem;
+  background: var(--main-border-color);
+  clip-path: polygon(100% 0, 0% 100%, 100% 100%);
+  margin-right: -0.5px;
+}
+.sigmaboxunder .title:before { content: ">> ";}
+
+/* = 链接盒子 = */
+/* 用于侧边栏按钮 */
+.linkbox { 
+  transition: all 0.5s ease; 
+  position: relative; 
+  overflow: hidden;
+}
+.theme-fandomdesktop-light .linkbox:hover {
+  cursor: pointer;
+  filter: brightness(85%);
+}
+.theme-fandomdesktop-dark .linkbox:hover {
+  cursor: pointer;
+  filter: brightness(120%);
+}
+.linkbox a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-size: 0;
+  z-index:6;
+}
+
+/* = 多边形按钮 = */
+/* 用于警告栏/活动/艺作 */
+.buttonbox {
+  position: relative;
+  display: block;
+  padding: 0.5em 0.25rem 0.5em 0.25rem;
+  margin: auto;
+  text-align:left;
+  font-size: 15px;
+  color: var(--nav-font-color);
+  background: #fff;
+  font-family: Noto Serif SC;
+  font-weight: 500;
+  transition: .5s ease-in-out;
+}
+.buttonbox a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-size: 0;
+  z-index:6;
+}
+
+.animatedbox {
+  position: relative;
+}
+
+.animatedbox::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30%;
+  height: 30%;
+  background: var(--nav-bg-color-2);
+  clip-path: polygon(0 0, 100% 0, 0 100%, 0 0);
+  transition: clip-path .5s ease-in-out;
+}
+
+.animatedbox::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 30%;
+  height: 30%;
+  background: var(--nav-bg-color-2);
+  clip-path: polygon(100% 100%, 100% 0, 0 100%, 100% 100%);
+  transition: clip-path .5s ease-in-out;
+}
+
+.buttonbox:hover {
+  cursor: pointer;
+  color: var(--nav-font-color--hover);
+  background: #823f3f;
+}
+
+.rightclip {
+  content: "";
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-left: solid 0.5em var(--nav-border-color-1);
+  background: var(--nav-bg-color-1);
+  clip-path: polygon(
+  0 0,
+  100% 0,
+  100% calc(100% - 1rem),
+  calc(100% - 1rem) 100%,
+  0 100%
+);
+  transition: .5s ease-in-out;
+}
+.rightclip:hover {
+  cursor: pointer;
+  color: var(--nav-font-color--hover);
+  background: var(--nav-bg-color-2);
+  border-left: solid 2em var(--nav-border-color-2);
+}
+
+/* = Flex布局 = */
+.navflex{
+  display:flex;
+  flex-flow:row nowrap;
+  justify-content: space-between;
+}
+
+/* = 新闻盒子 = */
+/* 来自于CT的设计 */
+.entityentry{
+  border-radius: 0px;
+  background: #E9E9E9cc;
+  color: var(--font-color);
+  padding:10px;
+  margin:0.5em 0.2em 0.5em;
+  box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+  transition:all 0.3s ease-in-out;
+}
+.entityentry:hover{
+  transform: translate(-5px, -3px);
+  background: #E8E8E8bb;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+.entityentry:active{
+  transform: scale(0.95);
+}
+
+/* = ！炫酷！活动栏 = */
+/* 这个活动栏不需要在代码上写背景图 */
+.eventbox { 
+  text-align: center; 
+  overflow: hidden; 
+  position: relative; 
+  line-height: 0; 
+  font-size: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.eventbox img {
+  width: 100%;
+  height: auto;
+  transform: scale(1.1);
+  transition: transform 0.3s ease, filter 0.3s ease;
+  position: relative;
+  z-index: 1; 
+  display: block;
+}
+
+.eventbox a.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.eventbox:hover img {
+  transform: scale(1.25);
+  filter: grayscale(100%);
+}
+
+.eventbox-content {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.eventbox::before,
+.eventbox::after,
+.eventbox-content::before,
+.eventbox-content::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 25%;
+  left: 0;
+  background: linear-gradient(
+    to right,
+    rgba(0,0,0,0.9),
+    rgba(0,0,0,0.6),
+    transparent,
+    rgba(0,0,0,0.6),
+    rgba(0,0,0,0.9)
+  );
+  transform: translateX(100%);
+  transition: transform 0.3s ease;
+  z-index: 10;
+  pointer-events: none;
+}
+
+.eventbox::before {
+  top: 0;
+  transform: translateX(100%);
+}
+
+.eventbox::after {
+  top: 25%;
+  transform: translateX(-100%);
+}
+
+.eventbox-content::before {
+  top: 50%;
+  transform: translateX(100%);
+}
+
+.eventbox-content::after {
+  top: 75%;
+  transform: translateX(-100%);
+}
+
+.eventbox:hover::before,
+.eventbox:hover::after,
+.eventbox:hover .eventbox-content::before,
+.eventbox:hover .eventbox-content::after {
+  transform: translateX(0);
+}
+.eventbox .inner-content {
+  padding: 7px 0;
+  text-align: right;
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  z-index: 15;
+  transition: all 0.3s ease 0s;
+  pointer-events: none;
+}
+.eventbox .event-title {
+  font-size: 40px;
+  font-weight: 700;
+  color: #E2C327;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0 0 3px 0;
+  opacity: 0;
+  transform: translateY(300px);
+  transition: all 0.4s ease 0s;
+}
+.eventbox .event-subtitle {
+  display: inline-block; 
+  padding: 0 5px; 
+  font-size: 25px;
+  font-style: italic;
+  color: #fff;
+  margin: 0 0 3px 0;
+  opacity: 0;
+  transform: translateY(100px);
+  transition: all 0.4s ease 0s;
+}
+.eventbox:hover .event-title,
+.eventbox:hover .event-subtitle {
+  opacity: 1;
+  transform: translate(0,0);
+}
+
+/* = 仿Sigma 10活动栏 = */
+/* 这个活动栏需要在代码上写背景图 */
+.eventbox-dua {
+  position: relative;
+  isolation: isolate;
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  margin: 1rem auto;
+  border-radius: 4px; 
+  box-shadow: 0 4px 8px rgba(0,0,0,0.25);
+  background-color: #fff; 
+  overflow: hidden; 
+  color: #333; 
+}
+
+.eventbox-dua .section-head h2 {
+  font-size: 0.9125em;
+  color: inherit;
+}
+
+.eventbox-dua-title {
+  text-align: center;
+  font-weight: 800;
+  letter-spacing: 0.05ch;
+  font-size: 2.25em;
+  margin-bottom: 0.2rem; 
+  position: relative;
+  z-index: 2; 
+}
+
+.eventbox-dua-opener {
+  text-align: left; 
+  font-size: 1em;
+  line-height: 1.6;
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.eventbox-dua-opener > p:first-child {
+  margin-block-start: 0;
+}
+
+.eventbox-dua-opener > p:last-child {
+   margin-block-end: 0;
+}
+
+.eventbox-dua .eventbutton {
+  font-size: 1.325em;
+  font-weight: 900;
+  text-align: center;
+  display: flex;
+  justify-content: flex-end;
+  display: block;
+}
+
+.eventbox-dua .eventbutton > span {
+  flex-grow: 1;
+  letter-spacing: 0.05ch;
+}
+
+.base-img {
+  position: relative;
+}
+
+.base-img::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: url('https://static.wikia.nocookie.net/scpfoundation/images/1/13/Vertical-shot-beautiful-starry-sky.jpg/revision/latest?cb=20260220151410&format=original&path-prefix=zh');
+  background-size: cover;
+  background-position: center top;
+  pointer-events: none;
+  opacity: 0.55;
+  z-index: -1;
+}
+
+/* = 艺作展出栏 = */
+/* 这个栏需要在代码上写背景图 */
+.artworkbox {
+  background: url('https://static.wikia.nocookie.net/scpfoundation/images/c/c6/%E9%A9%AC%E9%A3%9E%E9%A3%9ECL.png/revision/latest?cb=20260122041838&format=original&path-prefix=zh') no-repeat;
+  background-size: cover; 
+  background-position: center; 
+  min-height:400px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  color: var(--font-color);
+  padding: 2em 1rem 2em 1rem;
+  margin: 0.5rem 0 0.5rem 0.25rem;
+  box-shadow: 0 0.2rem 0.3rem rgba(0,0,0,.25);
+  border-left: solid 0.2em var(--main-border-color);
+  border-right: solid 0.2em var(--main-border-color);
+  border-top: solid 0.7em var(--main-border-color);
+  border-bottom: solid 0.7em var(--main-border-color);
+  font-family: Noto Serif SC;
+}
+.artworkbox .eventbutton {
+  margin-bottom: 8px; 
+  position: relative;     
+  z-index: 5;             
+}
+
+/* = 活动按键 = */
+/* 多了半透明设计 */
+.eventbutton {
+  position: relative;
+  display: block;
+  padding: 0.5em 0.25rem 0.5em 0.25rem;
+  margin: auto;
+  text-align:left;
+  font-size: 15px;
+  color: var(--nav-font-color);
+  background: #fff;
+  font-family: Noto Serif SC;
+  font-weight: 500;
+  transition: .6s ease-in-out;
+}
+.eventbutton a {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  font-size: 0;
+  z-index:6;
+}
+.eventbutton:hover {
+  cursor: pointer;
+  color: var(--nav-font-color--hover);
+  background: #823f3f;
+}
+
+.eventclip {
+  content: "";
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-left: solid 0.7em var(--eventclip-border-color--rbg);
+  background: var(--eventclip-bg-color--rbg);
+  clip-path: polygon(
+  0 0,
+  100% 0,
+  100% calc(100% - 1rem),
+  calc(100% - 1rem) 100%,
+  0 100%
+);
+  transition: .6s ease-in-out;
+}
+.eventclip:hover {
+  cursor: pointer;
+  color: var(--nav-font-color--hover);
+  background: var(--nav-bg-color-2);
+  border-left: solid 3em var(--nav-border-color-2);
+}
+
+/* = 节日栏-新年 = */
+.new-year-border {
+    box-sizing: border-box;
+    border: 2vw solid rgba(0,0,0,0.5);
+    border-image: url(https://static.wikia.nocookie.net/scpfoundation/images/6/68/CNStyleBorder.svg/revision/latest?cb=20251227161015&format=original&path-prefix=zh) 600 round;
+    border-image-width: 6;
+    padding: 2vw;
+}
+
+/* = 站点Logo = */
+.sitelogo::before { 
+  background-image: url('https://static.wikia.nocookie.net/scpfoundation/images/5/53/DarkSL.png/revision/latest?cb=20250908110910&format=original&path-prefix=zh');
+  background-size: 35%; 
+  opacity: 0.3; 
+  transition: filter 0.3s ease;
+}
+.theme-fandomdesktop-light .sitelogo::before { 
+  filter: invert(16%) sepia(10%) saturate(14%) hue-rotate(314deg) brightness(92%) contrast(86%);
+}
+.theme-fandomdesktop-dark .sitelogo::before { 
+  filter: brightness(2);
+}
+
+/* = 标题栏 = */
+/* 用于区分首页左的各个区域 */
+.section-head {
+  display: flex;
+  align-items: center;
+  gap: .5rem;
+  font-size: 1.325em;
+  font-family: inherit;
+  letter-spacing: 0;
+  font-weight: bold;
+  color: var(--section-header-color);
+  margin-top: 8px; 
+}
+.section-head::after {
+  content: "";
+  display: flex;
+  border-block-start: solid thin var(--section-header-color);
+  flex-grow: 1;
+  min-width: 2rem;
+}
+
+/* === 首页右 === */
+/* = 基本侧边栏 = */
+.sidebar{
+  border: 2px dotted var(--sidebar-border-color); 
+  border-radius: 10px; 
+  padding: 10px; 
+  margin: 0.7em 0.1em 0.7em;
+  box-shadow: 0 0.2rem 0.3rem rgba(0,0,0,.25);
+  color: var(--theme-link-color);
+}
+
+/* = 4种侧边栏设计 = */
+/* 宣传/新人/常规/维护 */
+.sidebar-media {
+  background: var(--sidebar-media-bg-color);
+  overflow: visible;
+}
+.sidebar-newcomer {
+  background: var(--sidebar-new-bg-color);
+  overflow: visible;
+}
+.sidebar-items {
+  background: var(--sidebar-item-bg-color);
+  overflow: visible;
+}
+.sidebar-maintain {
+  background: var(--sidebar-maintain-bg-color);
+  overflow: visible;
+}
+
+/* = 媒体按键 = */
+.site {
+  position: relative;
+  z-index: 10;
+}
+.site a:hover img, 
+.site a:focus img {
+  transition: 150ms;
+  transform: scale(1.2);
+  filter: drop-shadow(0 0.3rem 0.5rem rgba(0,0,0,.5));
+}
+.site::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%; 
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px); 
+  margin-bottom: 8px;
+
+  background-color: rgba(0, 0, 0, 0.65); 
+  color: #fff; 
+  padding: 5px 8px; 
+  border-radius: 4px; 
+  font-size: 12px; 
+  pointer-events: none; 
+  white-space: normal; 
+  width: max-content;  
+  max-width: 120px;   
+  line-height: 1.4;    
+  text-align: center;
+  
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 20; 
+}
+.site:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0); 
+}
+.site::before {
+  content: "";
+  position: absolute;
+  bottom: 100%; 
+  left: 50%;
+  transform: translateX(-50%) translateY(-5px); 
+  margin-bottom: 3px; 
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.85) transparent transparent transparent; 
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 20;
+}
+.site:hover::before {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+/* = 媒体布局 = */
+.media-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  text-align: center;
+  gap: 1.5rem;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+/* = 侧边栏标题 = */
+.sidebar-header {
+  color: var(--sidebar-header-color);
+  border-bottom: solid 1px var(--sidebar-header-color);
+  padding-left: 15px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+.sidebar-header:not(:first-child) {
+  margin-top: 10px;
+}
+
+/* = 侧边栏按键 = */
+/* 用于五个按键 */
+.sidebar-button {
+  border: 1px solid var(--sidebar-border-color); 
+  border-radius: 10px; 
+  padding: 20px; 
+  margin: 0.7em 0.1em 0.7em;
+  box-shadow: 0 0.2rem 0.3rem rgba(0,0,0,.25);
+  color: var(--theme-link-color);
+  background-color: var(--sidebar-item-bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 35px;
+  position: relative; 
+  overflow: hidden;   
+  z-index: 1;
+}
+
+/* = 侧边栏按键ICON = */
+.icon-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat; 
+  z-index: -1; 
+}
+.sandbox-icon::before {
+  background-image: url('https://static.wikia.nocookie.net/scpfoundation/images/9/9e/Sand-bucket.png/revision/latest?cb=20251221154242&format=original&path-prefix=zh');
+  background-size: 28%; 
+  opacity: 0.2;  
+}
+.forum-icon::before {
+  background-image: url('https://static.wikia.nocookie.net/scpfoundation/images/4/41/Conversation.png/revision/latest?cb=20251222162241&format=original&path-prefix=zh');
+  background-size: 30%; 
+  opacity: 0.2; 
+}
+.idea-icon::before {
+  background-image: url('https://static.wikia.nocookie.net/scpfoundation/images/e/e2/Idea-icon.png/revision/latest?cb=20251223163711&format=original&path-prefix=zh');
+  background-size: 28%; 
+  opacity: 0.2; 
+}
+.staff-icon::before {
+  background-image: url('https://static.wikia.nocookie.net/scpfoundation/images/6/66/Staffs-icon.png/revision/latest?cb=20251222160720&format=original&path-prefix=zh');
+  background-size: 50%; 
+  opacity: 0.2; 
+}
+.preorder-icon::before {
+  background-image: url('https://static.wikia.nocookie.net/scpfoundation/images/4/49/PreOrder-Icon.png/revision/latest?cb=20251225180150&format=original&path-prefix=zh');
+  background-size: 28%; 
+  opacity: 0.2; 
+}
