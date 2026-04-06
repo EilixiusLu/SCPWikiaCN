@@ -280,6 +280,7 @@
         transform: translateX(0);
     }
 }
+/* ==== 引自Sigma-9版式的DIV盒子 ==== */
 .unmargined > p {
     margin: 0;
     line-height: 100%;
@@ -404,7 +405,7 @@
 .content-panel .panel-footer a {
     color: #fff;
 }
-
+/* ==== Fandom Tabber修改 仿Sigma-9 ==== */
 .tabber .wds-tabs__wrapper .wds-tabs {
   padding: 3px 0 0;
 }
