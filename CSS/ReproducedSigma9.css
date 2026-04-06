@@ -1,0 +1,540 @@
+/* Reproduced Sigma-9, SCP基金会Fandom中文2026愚人节版式，By Chhokmah Lu(EilixiusLu) */
+/* ==== 字体引自SCP维基中文分部Sigma-9版式 ==== */
+@import url('https://sigma9.scpwikicn.com/cn/fonts/font-bauhaus.css');
+@import url('https://fonts.googleapis.com/earlyaccess/nanumgothic.css');
+@import url('https://fonts.googleapis.com/earlyaccess/nanumgothiccoding.css');
+@import url('https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.3.0/css/font-awesome.min.css');
+
+/* ==== 基础 ==== */
+.theme-fandomdesktop-light {
+  --theme-page-text-color: #000;
+  --theme-page-text-color--rgb: 0, 0, 0;
+  --theme-link-color: #901;
+  --theme-link-color--rgb: 153,0,17;
+  --theme-link-decoration:none;
+  --theme-community-header-color:white;
+  --theme-community-header-color--hover:white;
+  --theme-community-header-color--hover--rgb: 255,255,255;
+  --theme-body-background-color:#FAFAFA;
+  --theme-body-background-color--rgb: 250,250,250;
+  --theme-page-background-color:#FAFAFA;
+  --theme-page-background-color--rgb:250,250,250;
+  --theme-page-accent-mix-color:##FAFAFA;
+  --theme-sticky-nav-background-color:#603939;
+  --theme-sticky-nav-text-color:#fff;
+  --theme-sticky-nav-text-color--hover:#E4E4E4;
+  --theme-page-background-color--secondary:#FAFAFA !important;
+  --theme-page-background-color--secondary--rgb:250,250,250 !important;
+  --theme-header-color-1:#901;
+  --fandom-text-color--secondary:#901;
+  --wds-dropdown-background-color:#E9E9E9;
+  --wds-dropdown-background-color--rgb: 233,233,233;
+  --widget-frame-text-color:#191410;
+}
+.resizable-container {
+    
+}
+.fandom-community-header{
+  font-family: 'Nanum Gothic', san-serif;
+}
+.fandom-community-header__community-name{
+  visibility:hidden!important;
+}
+.fandom-community-header__community-name::after {
+  content: "SCP基金会FD分部"; 
+  font-family: BauhausLTDemi, Simhei, Arial, sans-serif;
+  visibility:visible!important;
+  position: absolute; 
+  left:115px;
+  font-size: 30px;
+  font-weight: bold;
+}
+.fandom-community-header__image img{
+  content: url('https://static.wikia.nocookie.net/scpfoundation/images/8/89/SCPSigmalogo.png/revision/latest?cb=20260329005236&format=original&path-prefix=zh'); 
+  background-size: auto;
+  width: auto;
+  top: auto;
+  height: auto;
+} 
+.fandom-sticky-header__logo img {
+  content: url('https://static.wikia.nocookie.net/scpfoundation/images/8/89/SCPSigmalogo.png/revision/latest?cb=20260329005236&format=original&path-prefix=zh'); 
+  width: 50px;
+  height: auto;
+  background-size: 49px;
+}
+/* ==== Fandom Header 修改==== */
+.page-header__top {
+  display:none;
+}
+.fandom-community-header__community-name {
+  text-shadow:2px 2px 0 #000000;
+  font-weight:700;
+  font-family:none
+}
+/* == Sigma-9风格Header == */
+.theme-fandomdesktop-light .community-header-wrapper {
+  padding-bottom:14px;
+  position: relative;
+  background-image:
+      repeating-linear-gradient(
+          45deg,
+          rgba(255,255,255,0.1) 0px,
+          rgba(255,255,255,0.1) 1px,
+          transparent 1px,
+          transparent 4px
+      ),
+      linear-gradient(
+          to bottom,
+          #000000,
+          #603939
+      );
+
+  background-position: 0 0;
+}
+
+.theme-fandomdesktop-light .community-header-wrapper::before {
+  content: "";
+  position: absolute;
+  right: 100%; 
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: inherit;
+  background-position: -100% 0;
+}
+.theme-fandomdesktop-light .community-header-wrapper::after {
+  content: "";
+  position: absolute;
+  left: 100%; 
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: inherit;
+  background-position: 100% 0;
+  z-index: 0;
+}
+
+.theme-fandomdesktop-dark .community-header-wrapper::before {
+  content: "";
+  position: absolute;
+  right: 100%; 
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: inherit;
+  background-position: -100% 0;
+}
+
+.theme-fandomdesktop-dark .community-header-wrapper::after {
+  content: "";
+  position: absolute;
+  left: 100%; 
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-image: inherit;
+  background-position: 100% 0;
+  z-index: 0;
+}
+/* ==== 本地导航修改 ==== */
+.community-navigation .fandom-community-header__local-navigation {
+  background-color:var(--theme-sticky-nav-background-color);
+  z-index:1;
+}
+
+.fandom-community-header__local-navigation .wds-dropdown__content {
+  background-color: #E9E9E9;
+  border: 1px solid black;
+  border-bottom: none;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+  padding: 0;
+  width: 210px;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+.fandom-community-header__local-navigation 
+.wds-dropdown__content 
+.wds-list.wds-is-linked > li {
+  display: block;
+  text-align: left;
+  padding: 0;
+  background-color: #E9E9E9;
+  border-bottom: 1px solid black;
+  transition: background-color 1s ease;
+}
+
+.fandom-community-header__local-navigation 
+.wds-dropdown__content 
+.wds-list.wds-is-linked > li > a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #901;
+  font-family: 'Nanum Gothic', sans-serif;
+  padding: 6px 10px;
+  white-space: nowrap;
+}
+
+.fandom-community-header__local-navigation 
+.wds-dropdown__content 
+.wds-list.wds-is-linked > li > a svg {
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}
+
+.fandom-community-header__local-navigation 
+.wds-dropdown__content 
+.wds-list.wds-is-linked > li:hover {
+  background-color: #f5f5f5;
+}
+
+.fandom-community-header__local-navigation 
+.wds-dropdown__content a {
+  color: #901 !important;
+}
+
+.fandom-community-header__local-navigation 
+.wds-dropdown__content 
+.wds-list.wds-is-linked > li:hover > a {
+  color: #901;
+}
+.fandom-community-header__local-navigation 
+.wds-dropdown__content a:hover {
+  color: #901 !important;
+}
+.fandom-community-header__local-navigation 
+.wds-dropdown__content 
+.wds-list.wds-is-linked 
+.wds-dropdown-level-nested 
+.wds-dropdown-level-nested__content {
+  background-color: #E9E9E9;
+  border: 1px solid black;
+  border-bottom: none;
+  width: 210px;
+  padding: 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.15);
+}
+
+.theme-fandomdesktop-light 
+.fandom-community-header__local-navigation .wds-dropdown__content,
+.theme-fandomdesktop-dark 
+.fandom-community-header__local-navigation .wds-dropdown__content {
+  border-color: black;
+}
+
+/* == 箭头动画 == */
+
+.wds-dropdown__toggle-chevron,
+.fandom-community-header__local-navigation .wds-list .wds-dropdown-chevron {
+    transition: transform 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    transform-origin: center;
+}
+
+.fandom-community-header__local-navigation 
+.wds-list li .wds-dropdown-chevron {
+    transform: rotate(0deg);
+}
+
+.wds-dropdown.wds-is-active .wds-dropdown__toggle-chevron,
+.wds-dropdown:not(.wds-is-touch-device):not(.wds-is-not-hoverable):hover 
+.wds-dropdown__toggle-chevron {
+
+    transform: rotate(180deg);
+}
+
+.fandom-community-header__local-navigation 
+.wds-dropdown__content .wds-list {
+
+    opacity: 0;
+    transform: translateY(-6px);
+
+    animation: dropdown-modern 0.2s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+
+@keyframes dropdown-modern {
+    from {
+        opacity: 0;
+        transform: translateY(-6px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+.fandom-community-header__local-navigation 
+.wds-dropdown__content > .wds-dropdown-level-nested__content {
+
+    opacity: 0;
+    transform: translateX(8px);
+
+    animation: dropdown-sub-modern 0.18s cubic-bezier(0.2, 0.8, 0.2, 1) forwards;
+}
+@keyframes dropdown-sub-modern {
+    from {
+        opacity: 0;
+        transform: translateX(8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+.unmargined > p {
+    margin: 0;
+    line-height: 100%;
+}
+.content-panel {
+    border: solid 1px #888880;
+    border-radius: 10px;
+    background-color: #999990;
+    margin: 10px 0 15px;
+    box-shadow: 3px 3px 6px #bbb;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.1);
+}
+.content-panel.standalone {
+    background: #fcfdfb;
+}
+.content-panel.series {
+    padding: 0 20px;
+    margin-bottom: 20px;
+}
+.content-panel.centered {
+    text-align: center;
+}
+.content-panel.left-column {
+    float: left;
+    width: 48%;
+}
+.content-panel.right-column {
+    float: right;
+    width: 48%;
+}
+.content-panel .panel-heading {
+    padding: 2px 10px;
+    color: #fff;
+    font-size: 90%;
+    font-weight: bold;
+    text-shadow: 1px 1px 2px rgba(0,0,0,.35);
+}
+.content-panel .panel-heading > p,
+.content-panel .panel-footer > p {
+    margin: 0;
+}
+.content-panel .panel-body {
+    padding: 5px 10px;
+    background: #fff9f0 url('https://static.wikia.nocookie.net/scpfoundation/images/e/e3/Panel-bg-gradient-reverse.png/revision/latest?cb=20260329142813&format=original&path-prefix=zh') bottom repeat-x;
+}
+.feature-block {
+    height: 230px;
+}
+.feature-block .panel-body {
+    height: 160px;
+    overflow-y: hidden;
+}
+.feature-block .feature-title {
+    font-size: 120%;
+    font-weight: bold;
+}
+.feature-block .feature-subtitle {
+    font-size: 90%;
+}
+
+.feature-block .feature-title > p,
+.feature-block .feature-subtitle > p {
+    margin: 0;
+}
+
+.news-block .panel-body {
+    padding: 0;
+}
+.news-block .panel-body .alternate {
+    padding: 5px 10px;
+}
+.news-block .news-title {
+    font-weight: bold;
+    font-size: 110%;
+    margin-bottom: 5px;
+    color: #633;
+}
+.news-block .news-content {
+    margin: 5px 0;
+}
+.news-block .news-title > p,
+.news-block .news-content > p {
+    margin: 0;
+}
+
+.international-block .panel-body {
+    padding: 0;
+}
+.international-entry {
+    padding: 3px 20px;
+}
+.international-entry:nth-child(even),
+.alternate:nth-child(even) {
+    background-color: rgba(255,255,255,.9);
+    border-top: solid 1px #eeeee0;
+    border-bottom: solid 1px #eeeee0;
+}
+
+.content-panel p, .content-panel .list-pages-box { 
+  padding: 0 0.75em; 
+}
+
+.content-panel .list-pages-item {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    min-height: 20px;
+}
+.list-pages-item > div:first-child {
+    -webkit-flex-grow: 1;
+    flex-grow: 1;
+}
+.content-panel .panel-footer {
+    padding: 1px 10px;
+    color: #fffff0;
+    font-size: 80%;
+    font-weight: bold;
+    text-align: right;
+    text-shadow: 1px 1px 2px rgba(0,0,0,.5);
+}
+.content-panel .panel-footer a {
+    color: #fff;
+}
+
+.tabber .wds-tabs__wrapper .wds-tabs {
+  padding: 3px 0 0;
+}
+
+.tabber .wds-tabs > .wds-tabs__tab {
+  box-shadow: none;
+}
+
+.tabber .wds-tabs > .wds-tabs__tab:not(:last-child) {
+  margin-right: 2px;
+}
+
+.tabber .wds-tabs .wds-tabs__tab-label {
+  height: auto;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.tabber .wds-tabs__tab a {
+  background-color: #fcfdfb;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5), inset 0 1px rgba(255,255,255,0.3), inset 0 10px rgba(255,255,255,0.2), inset 0 10px 20px rgba(255,255,255,0.25), inset 0 -15px 30px rgba(0,0,0,0.1);
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
+  border: 1px solid black;
+  color: black !important;
+  font-weight: normal;
+  padding: 3px 1em;
+}
+
+.tabber .wds-tabs__tab a:hover{
+  background-color: #F5B9BF;
+}
+.tabber .wds-tabs__tab.wds-is-current a {
+  cursor: default;
+  color: white !important;
+  background: #81000D;
+}
+
+.tabber .wds-tab__content {
+  border: 1px solid #444444;
+  border-top: 5px solid #444444;
+  background: #F5F5F5;
+}
+
+.sidebar{
+  border: 1px solid #600; 
+  border-radius: 10px; 
+  padding: 10px; 
+  margin: 0.7em 0.1em 0.7em;
+  box-shadow: 0 2px 6px rgba(102,0,0,.5);
+  color: var(--theme-link-color);
+}
+.sidebar-header {
+  color: #600;
+  border-bottom: solid 1px #600;
+  padding-left: 15px;
+  margin-bottom: 5px;
+  font-size: 8pt;
+  font-weight: bold;
+}
+.sidebar-header:not(:first-child) {
+  margin-top: 10px;
+}
+.site {
+  position: relative;
+  z-index: 10;
+}
+.site a:hover img, 
+.site a:focus img {
+  transition: 150ms;
+  transform: scale(1.2);
+  filter: drop-shadow(0 0.3rem 0.5rem rgba(0,0,0,.5));
+}
+.site::after {
+  content: attr(data-tooltip);
+  position: absolute;
+  bottom: 100%; 
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px); 
+  margin-bottom: 8px;
+
+  background-color: rgba(0, 0, 0, 0.65); 
+  color: #fff; 
+  padding: 5px 8px; 
+  border-radius: 4px; 
+  font-size: 12px; 
+  pointer-events: none; 
+  white-space: normal; 
+  width: max-content;  
+  max-width: 120px;   
+  line-height: 1.4;    
+  text-align: center;
+  
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 20; 
+}
+.site:hover::after {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0); 
+}
+.site::before {
+  content: "";
+  position: absolute;
+  bottom: 100%; 
+  left: 50%;
+  transform: translateX(-50%) translateY(-5px); 
+  margin-bottom: 3px; 
+  border-width: 5px;
+  border-style: solid;
+  border-color: rgba(0, 0, 0, 0.85) transparent transparent transparent; 
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+  z-index: 20;
+}
+.site:hover::before {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(-50%) translateY(0);
+}
+
+.media-container {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: center;
+  text-align: center;
+  gap: 1.5rem;
+  max-width: 100%;
+  margin: 0 auto;
+}
