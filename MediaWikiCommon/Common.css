@@ -1,0 +1,763 @@
+/* SCP基金会Famdom中文全站CSS，2026.4版本*/
+
+/*=import声明=*/
+@import url("/load.php?mode=articles&only=styles&articles=u:dev:MediaWiki:AjaxPoll.Modern.css|u:dev:MediaWiki:BalancedBloglists.css|u:dev:MediaWiki:BalancedCategories.css|u:dev:MediaWiki:BalancedComments.css|u:dev:MediaWiki:BalancedMessageBoxes.css|u:dev:MediaWiki:BalancedPageBottom.css|u:dev:MediaWiki:BalancedProfile.css|u:dev:MediaWiki:BalancedScrollbar.css|u:dev:MediaWiki:LocalNavExploreIcons.css|u:dev:MediaWiki:BalancedSearch.css|u:dev:MediaWiki:BalancedSlider.css|u:dev:MediaWiki:BalancedTabber.css|u:dev:MediaWiki:CSS3Tooltip.css|u:dev:MediaWiki:Highlight.css|u:dev:MediaWiki:LeafyStrap.css|u:dev:MediaWiki:FatButton.css|u:dev:MediaWiki:ThemeBasedStyling.css|u:dev:MediaWiki:ThemeColorClasses.css|u:dev:MediaWiki:ProgressBar.css|u:dev:MediaWiki:FandomIcons.css|u:dev:MediaWiki:SpoilerBlur.css|u:dev:MediaWiki:UserAnimations.css|u:zh.ookami-chan:MediaWiki:Fandomdesktop.css");
+/*=font字体=*/
+@import url('https://fonts.googleapis.com/css2?display=swap&family=Long+Cang&family=Ma+Shan+Zheng&family=Noto+Serif+SC:wght@200;500;700&family=ZCOOL+XiaoWei&family=Zhi+Mang+Xing&family=Lobster&family=Ma+Shan+Zheng&family=ZCOOL+QingKe+HuangYou&family=Comfortaa&family=Silkscreen&family=Noto+Sans+SC&family=Oxygen+Mono&family=Overpass+Mono:wght@300');
+@import url('https://fonts.googleapis.com/css?family=Lato:400,900|PT+Mono|Poppins:600,800|Share+Tech+Mono|Anonymous+Pro');
+@import url('https://fonts.googleapis.com/css2?family=Island+Moments&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Baumans&family=Graduate&family=Kelly+Slab&family=Kumar+One&family=Tulpen+One&family=ZCOOL+QingKe+HuangYou&display=swap');
+@font-face{
+	font-family:"Genshin55W";
+	font-style:normal;
+	font-weight:normal;
+	src:url("https://static.wikia.nocookie.net/gensin-impact/images/a/a9/Genshin_Impact_Font_55W.woff/revision/latest")format("truetype");
+}
+@font-face{
+	font-family:"Genshin75W";
+	font-style:normal;
+	font-weight:normal;
+	src:url("https://static.wikia.nocookie.net/gensin-impact/images/f/f3/Genshin_Impact_Font_75W.woff/revision/latest")format("truetype");
+}
+/*=CSS样式&功能=*/
+/*白天和夜晚不一样*/
+.theme-fandomdesktop-light .onlydark{
+	display:none;
+}
+.theme-fandomdesktop-dark .onlylight{
+	display:none;
+}
+/*仅站务组成员可见*/
+.staff-only,.admin-only{
+	display:none;
+}
+/*折叠展开1*/
+@keyframes collapse-animation{
+	from{left:-20px;opacity:0;}
+	to{left:0;opacity:1;}
+}
+.home{
+	position:relative;
+	animation-name:collapse-animation;
+	animation-duration:0.8s;
+	animation-fill-mode:forwards;
+}
+/*折叠展开2*/
+@keyframes collapse2-animation{
+	from{left:-300px;transform:rotate(20deg);opacity:0;}
+	to{left:0;transform:rotate(0deg);opacity:1;}
+}
+.home2{
+	position:relative;
+	left:-300px;
+	transform:rotate(20deg);
+	opacity:0;
+	animation-name:collapse2-animation;
+	animation-fill-mode:forwards;
+	animation-duration:1s;
+}
+/*折叠展开3*/
+.home3{
+	position:relative;
+	left:-20px;
+	opacity:0;
+	transition:opacity 0.5s,left 0.5s;
+}
+.home3:hover{
+	opacity:1;
+	left:0;
+}
+/*Titleblock*/
+.titleblock{
+	background-color:rgb(239,219,166);
+	color:rgb(12,12,12);
+	padding:0.5rem 1rem 0.10rem;
+	margin:1.5rem 0 0.5rem 0;
+	box-shadow:0 0.2rem 0.3rem rgba(0,0,0,.5);
+	border:solid rgb(206, 187, 135) 2px;
+}
+.titlebox{
+	color:rgb(12,12,12);
+	position:relative;
+	top:-1.6rem;
+	background-color:rgb(222,203,150);
+	padding:0.25rem 1rem;
+	line-height:0.1rem;
+}
+/*模板:WarningBox*/
+.warning{
+	background:url("https://static.wikia.nocookie.net/backrooms/images/4/46/Warning-triangle.png/revision/latest?cb=20210923191047"),#ffffff;
+	margin:5px;
+	margin-bottom:10px;
+	margin-top:10px;
+	padding-left:0;
+	padding-right:0;
+	color:red;
+}
+.warning-box{
+	padding:3px 0;
+    margin:1rem;
+    transition:all 0.5s;
+}
+.warning-box:hover{
+	background-color:rgba(0,0,0,0.2);
+	box-shadow:2px 2px 3px rgba(0,0,0,0.5);
+	backdrop-filter:blur(4px);
+	-webkit-backdrop-filter:blur(4px);
+}
+/*信息框*/
+.info-box{
+	background:#bab9b8;
+	padding:10px;
+	margin:auto;
+	outline:thick ridge #f2f2f2;
+	outline-offset:2px;
+	color:green;
+}
+/*值*/
+.value-style{
+	transition:all 0.5s;
+}
+.value-style:hover{
+	border:1px solid #3c3c3c;
+	opacity:0.5;
+}
+/*文件袋*/
+.document{
+	background:var(--document-color);
+	box-shadow:0 0 10px rgba(0,0,0,0.3);
+	margin:26px auto 0;
+	padding:24px;
+	padding-top:50px;
+	position:relative;
+	width:90%;
+}
+.document:before{
+	content:"";
+	height:98%;
+	position:absolute;
+	width:100%;
+	z-index:-2;
+	background:var(--document-color);
+	box-shadow:0 0 8px rgba(0,0,0,0.2);
+	left:-5px;
+	top:4px;
+	transform:rotate(-2.1deg);
+}
+.document:after{
+	content:"";
+	height:98%;
+	position:absolute;
+	width:100%;
+	z-index:-1;
+	background:var(--document-color);
+	box-shadow:0 0 3px rgba(0,0,0,0.2);
+	right:-3px;
+	top:1px;
+	transform:rotate(1.1deg);
+}
+/*模板:工具提示*/
+.tooltip{
+	position:relative;
+	display:inline-block;
+	text-decoration:underline;
+}
+.tooltip .tooltiptext{
+	visibility:hidden;
+	width:120px;
+	background-color:grey;
+	color:white;
+	text-align:center;
+	border-radius:6px;
+	padding:3px 0;
+	position:absolute;
+	z-index:1;
+	bottom:150%;
+	left:50%;
+	margin-left:-60px;
+	opacity:0;
+	transition:all 0.5s;
+}
+.tooltip .tooltiptext::after{
+	content:"";
+	position:absolute;
+	top:100%;
+	left:50%;
+	margin-left:-5px;
+	border-width:5px;
+	border-style:solid;
+	border-color:grey transparent transparent transparent;
+}
+.tooltip:hover .tooltiptext{
+	visibility:visible;
+	opacity:1;
+}
+/*抖动文字*/
+@keyframes dithering-animation{
+	0%{left:0;top:0;}
+	12.5%{left:3px;top:0;}
+	25%{left:6px;top:2px;}
+	37.5%{left:0;top:4px;}
+	50%{left:-1px;top:0;}
+	62.5%{left:-4px;top:-6px;}
+	75%{left:0;top:-2px;}
+	100%{left:0;top:0;}
+}
+.dithering{
+	position:relative;
+	animation-name:dithering-animation;
+	animation-duration:0.2s;
+	animation-iteration-count:infinite;
+}
+/*上下波动*/
+@keyframes up-and-down-animation{
+	0%{top:0;}
+	50%{top:-5px;}
+	100%{top:0;}
+}
+.updown{
+	animation-name:up-and-down-animation;
+	position:relative;
+	top:0;
+	animation-duration:0.5s;
+	animation-iteration-count:infinite;
+}
+/*Edittools编辑工具*/
+.insert-code{
+	display:inline-block;
+	text-align:center;
+	background-color:var(--theme-page-background-color--secondary);
+	padding:0 4px;
+	margin:2px 0;
+}
+/*block样式块*/
+.darkblock{
+	background-color:rgb(var(--theme-accent-color--rgb));
+	color:white;
+	padding:1rem;
+	margin:0.5rem 0 0.5rem 0.25rem;
+	box-shadow:0 0.2rem 0.3rem rgba(0,0,0,0.25);
+}
+.lightblock{
+	background-color:var(--theme-page-background-color--secondary);
+	color:rgb(var(--theme-page-text-color--rgb));
+	padding:1rem;
+	margin:0.5rem 0 0.5rem 0.25rem;
+	box-shadow:0 0.2rem 0.3rem rgba(0,0,0,0.25);
+}
+.styled-quote{
+	background-color:var(--theme-page-text-mix-color-95);
+	color:rgb(var(--theme-page-text-color--rgb));
+	border-left:0.5rem solid var(--theme-page-accent-mix-color);
+	padding:1rem;
+	margin:0.5rem 0 0.5rem 0.25rem;
+	box-shadow:0.05rem 0.1rem 0.3rem rgba(0,0,0,.25);
+}
+.dark-styled-quote{
+	background-color:rgb(var(--theme-accent-color--rgb));
+	border-left:0.5rem solid var(--theme-link-color--hover);
+	color:white;
+	padding:1rem;
+	margin:0.5rem 0 0.5rem 0.25rem;
+	box-shadow:0.05rem 0.1rem 0.3rem rgba(0,0,0,0.25);
+}
+.dark-styled-quote a, .darkblock a{
+	color:white;
+}
+.borderblock{
+	background-color:rgb(var(--theme-accent-color--rgb));
+	color:white;
+	padding:1rem;
+	margin:0.5rem 0 0.5rem 0.25rem;
+	box-shadow:0 0.2rem 0.3rem rgba(0,0,0,0.25);
+	border:solid 0.3rem var(--theme-link-color--hover);
+}
+.light-borderblock{
+	background-color:var(--theme-page-background-color--secondary);
+	color:rgb(var(--theme-page-text-color--rgb));
+	padding:1rem;
+	margin:0.5rem 0 0.5rem 0.25rem;
+	box-shadow:0 0.2rem 0.3rem rgba(0,0,0,0.25);
+	border:solid 0.3rem var(--theme-page-accent-mix-color);
+}
+.light-logoblock{
+	padding:1rem;
+	box-shadow:0 0.2rem 0.3rem rgba(0,0,0,.25);
+	color:rgb(var(--theme-page-text-color--rgb));
+	margin:0.5rem 0 0.5rem 0.25rem;
+	display:block;
+	position:relative;
+	background-color:var(--theme-page-background-color--secondary);
+}
+.light-logoblock::after{
+	content:"";
+	float:center;
+	border:solid 2px #0000;
+	background:url(https://static.wikia.nocookie.net/code/images/a/af/%E7%AB%99%E7%82%B9%E5%9B%BE%E6%A0%87.jpeg/revision/latest?cb=20240106044823&path-prefix=zh) center/25% no-repeat;
+	opacity:0.25;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	position:absolute;
+	z-index:1;
+}
+.light-border-logoblock{
+	padding:1rem;
+	box-shadow:0 0.2rem 0.3rem rgba(0,0,0,0.25);
+	color:rgb(var(--theme-page-text-color--rgb));
+	margin:0.5rem 0 0.5rem 0.25rem;
+	display:block;
+	position:relative;
+	background-color:var(--theme-page-background-color--secondary);
+	border:solid 0.3rem var(--theme-page-accent-mix-color);
+}
+.light-border-logoblock::after{
+	content:"";
+	float:center;
+	border:solid 2px #0000;
+	background:url(https://static.wikia.nocookie.net/code/images/a/af/%E7%AB%99%E7%82%B9%E5%9B%BE%E6%A0%87.jpeg/revision/latest?cb=20240106044823&path-prefix=zh) center/25% no-repeat;
+	opacity:0.25;
+	top:0;
+	left:0;
+	bottom:0;
+	right:0;
+	position:absolute;
+	z-index:1;
+}
+/*彩色动效及波动文字，来自Backrooms Wiki ZH*/
+.rainbow_text {
+	background:linear-gradient(to right,#6666ff,#0099ff,#00ff00,#ff3399,#6666ff);
+	-webkit-background-clip:text;
+	background-clip:text;
+	color:transparent;
+	animation:rainbow_animation 6s ease-in-out infinite;
+	background-size:400% 100%;
+}
+.wavy-text{
+	display:inline-flex;
+	font-size:14px;
+	font-family:monospace;
+	text-transform:uppercase;
+}
+.wavy-text span{
+	animation:jiggle;
+	animation-duration:500ms;
+	animation-iteration-count:infinite;
+	transform:translateY(-2px);
+}
+.wavy-text span:nth-child(10n+1){animation-delay:100ms}
+.wavy-text span:nth-child(10n+2){animation-delay:200ms}
+.wavy-text span:nth-child(10n+3){animation-delay:300ms}
+.wavy-text span:nth-child(10n+4){animation-delay:400ms}
+.wavy-text span:nth-child(10n+5){animation-delay:500ms}
+.wavy-text span:nth-child(10n+6){animation-delay:600ms}
+.wavy-text span:nth-child(10n+7){animation-delay:700ms}
+.wavy-text span:nth-child(10n+8){animation-delay:800ms}
+.wavy-text span:nth-child(10n+9){animation-delay:900ms}
+.wavy-text span:nth-child(10n){animation-delay:1000ms}
+@keyframes jiggle{
+	from{transform:translateY(-2px);}
+	50%{transform:translateY(2px);}
+	to{transform:translateY(-2px);}
+}
+.wavy-text{
+	display:inline-flex;
+	font-size:14px;
+	font-family:monospace;
+	text-transform:uppercase;
+}
+.wavy-text span{
+	animation:jiggle;
+	animation-duration:500ms;
+	animation-iteration-count:infinite;
+	transform:translateY(-2px);
+}
+.wavy-text span:nth-child(1){animation-delay:100ms}
+.wavy-text span:nth-child(2){animation-delay:200ms}
+.wavy-text span:nth-child(3){animation-delay:300ms}
+.wavy-text span:nth-child(4){animation-delay:400ms}
+.wavy-text span:nth-child(5){animation-delay:500ms}
+.wavy-text span:nth-child(6){animation-delay:600ms}
+.wavy-text span:nth-child(7){animation-delay:700ms}
+.wavy-text span:nth-child(8){animation-delay:800ms}
+.wavy-text span:nth-child(9){animation-delay:900ms}
+.wavy-text span:nth-child(10){animation-delay:1000ms}
+@keyframes jiggle{
+	from{transform:translateY(-2px);}
+	50%{transform:translateY(2px);}
+	to{transform:translateY(-2px);}
+}
+@keyframes rainbow_animation{
+	0%,100%{background-position:0 0;}
+	50%{background-position:100% 0;}
+}
+/*边框块*/
+.styled-quote{
+	background-color:var(--theme-page-text-mix-color-95);
+	color:rgb(var(--theme-page-text-color--rgb));
+	border-left:0.5rem solid var(--theme-page-accent-mix-color);
+	padding:1rem;
+	margin:0.5rem 0 0.5rem 0.25rem;
+	box-shadow: 0.05rem 0.1rem 0.3rem rgba(0,0,0,.25);
+}
+.dark-styled-quote{
+	background-color:rgb(var(--theme-accent-color--rgb));
+	border-left:0.5rem solid var(--theme-link-color--hover);
+	color:white;
+	padding:1rem;
+	margin:0.5rem 0 0.5rem 0.25rem;
+	box-shadow:0.05rem 0.1rem 0.3rem rgba(0,0,0,.25);
+}
+.dark-styled-quote a{
+	color:white;
+}
+/*轻触放大*/
+.hovering{transition:all 0.3s;}
+.hovering:hover{transform:scale(1.05);}
+/*黑幕，来自Backrooms Wiki ZH*/
+.heimu,
+.heimu rt,
+.heimu sub,
+.heimu sup{
+	background-color:#252525;
+}
+span.heimu,
+span.heimu a,
+span.heimu a.new,
+span.heimu a.external,
+span.heimu a.extiw,
+span.heimu a.mw-disambig,
+span.heimu a.mw-redirect,
+a span.heimu{
+	transition:color .13s linear;
+	color:#252525;
+	text-shadow:none;
+}
+span.heimu:hover,
+span.heimu:active{
+	color:white;
+}
+span.heimu:hover a,
+span.heimu:hover a.extiw,
+span.heimu:hover a.external,
+span.heimu:hover a.mw-disambig,
+span.heimu:hover a.mw-redirect,
+a:hover span.heimu,
+a.extiw:hover span.heimu,
+a.external:hover span.heimu,
+a.mw-disambig:hover span.heimu,
+a.mw-redirect:hover span.heimu{
+	color:#c85b5b;
+}
+span.heimu:hover a:visited,
+span.heimu:hover a.extiw:visited,
+span.heimu:hover a.external:visited,
+span.heimu:hover a.mw-disambig:visited,
+span.heimu:hover a.mw-redirect:visited,
+a:visited:hover span.heimu,
+a.extiw:visited:hover span.heimu,
+a.external:visited:hover span.heimu,
+a.mw-disambig:visited:hover span.heimu,
+a.mw-redirect:visited:hover span.heimu{
+	color:grey;
+}
+span.heimu:hover a.new,
+a.new:hover span.heimu,
+span.heimu a.new:visited:hover,
+a.new:visited:hover span.heimu{
+	color:#e91e1e;
+}
+/*模板:Documentation*/
+.theme-fandomdesktop-light .documentation,
+.theme-fandommobile-light .documentation{
+	--doc-background-color:#ddd;
+	--doc-border-color:black;
+}
+.theme-fandomdesktop-dark .documentation,
+.theme-fandommobile-dark .documentation{
+	--doc-background-color:#333;
+	--doc-border-color:grey;
+}
+.documentation{
+	border:1px solid var(--doc-border-color, black);
+}
+.documentation-header{
+	background-color:var(--doc-background-color, #ddd);
+	padding:1em;
+}
+.documentation-actions{
+    float:right;
+    position:relative;
+    cursor:pointer;
+}
+.documentation-action-label{
+    text-align:right;
+    border-radius:3px;
+    padding:4px;
+    transition:background-color 0.2s linear;
+}
+ul.documentation-action-menu{
+    display:none;
+    list-style-type:none;
+    position:absolute;
+    top:100%;
+    right:0;
+    width:max-content;
+    text-align:left;
+    opacity:0;
+    margin:0;
+    padding:0.5em;
+    border:1px solid var(--theme-border-color);
+    border-radius:3px;
+    background-color:var(--theme-page-background-color--secondary);
+    transition:opacity 0.2s linear;
+}
+ul.documentation-action-menu>li{
+    padding:0.25em 0.5em;
+    border-radius:3px;
+    transition:background-color 0.2s linear;
+}
+ul.documentation-action-menu>li>a{
+    display:block;
+    color:var(--theme-page-text-color);
+    text-decoration:none;
+}
+ul.documentation-action-menu>li>a.new{
+    color:var(--theme-alert-color);
+}
+.documentation-actions:hover .documentation-action-label{
+    background-color:#0000001f;
+}
+.documentation-actions:hover .documentation-action-menu{
+    display:block;
+    top:100%;
+    opacity:1;
+    z-index:1;
+}
+ul.documentation-action-menu>li:hover{
+    background-color:rgba(var(--theme-link-color--rgb),0.1);
+}
+ul.documentation-action-menu>li:hover>a:not(.new){
+    color:var(--theme-link-color);
+}
+.documentation-content{
+	padding:1em;
+}
+.documentation-content>p:last-child{
+	margin-bottom:0;
+}
+.documentation-footer{
+	background-color:var(--doc-background-color,#ddd);
+	padding:0.5em;
+	font-size:85%;
+	text-align:right;
+}
+/*卡片浮起显示*/
+.el-card{
+	box-shadow:none;
+	transition:all .38s ease-in-out;
+}
+.el-card:hover{
+	box-shadow:0 1.2px 6px rgba(0,0,0,.2);
+	transition:all .38s ease-in-out;
+}
+.sl-card {
+	transition:all .32s ease;
+}
+.sl-card:hover{
+	transform:scale(1.08);
+	transition:all .32s ease;
+}
+/*TemplateData table styles*/
+.mw-templatedata-doc-wrap:is(p,dl){
+	margin-bottom:0;
+}
+.mw-templatedata-doc-wrap:is(p+p,dl){
+	margin-top:0;
+}
+.mw-templatedata-doc-wrap .oo-ui-widget{
+	background-color:transparent;
+}
+/*Disable antialiasing on tiny images*/
+.mw-parser-output img{
+	-ms-interpolation-mode:nearest-neighbor;
+	image-rendering:-moz-crisp-edges;
+	image-rendering:-o-crisp-edges;
+	image-rendering:-webkit-optimize-contrast;
+	image-rendering:crisp-edges;
+}
+/*Fix "Mark All As Read" button getting obscured in sidebar*/
+.fandom-sticky-header .is-visible{
+	z-index:499;
+}
+.notifications header[class*="NotificationsDropdown-module_contentHeader"] {
+	z-index:500;
+}
+/*Hide bottom category bar on main page*/
+.mainpage .article-categories,.mainpage .page-footer__categories{
+	display:none;
+}
+/*=HomePage首页=*/
+.main-block,.main-ban{
+	background:linear-gradient(rgb(220,220,220),rgb(235,235,235));
+	box-shadow:2px 2px 3px rgba(0,0,0,0.25),-2px -2px 3px rgba(0,0,0,0.25);
+	border-radius:30px;
+	padding:15px 0;
+}
+.main-ban{
+	transition:all 0.3s;
+	width:90%;
+	margin:auto;/*不知道为什么，margin:auto不起作用*/
+}
+.main-ban:hover{transform:scale(1.05);}
+.main-block{
+	width:95%;
+	border:2px solid grey;
+	box-shadow:2px 2px 3px rgba(0,0,0,0.25),-2px -2px 3px rgba(0,0,0,0.25),1px 1px 1px rgb(56,160,158,0.5);
+}
+.main-header{
+	background:var(--theme-border-color);
+	font-size:175%;
+	font-weight:bold;
+	margin:12px;
+	color:cyan;
+	font-family:Noto Serif SC;
+}
+.main-content{
+	padding:5px;
+	margin:5px;
+	color:#3a3a3a;
+	font-family:Noto Serif SC;
+	text-align:left;
+}
+/*=Noarticletext=*/
+.noarticletext-header{
+	font-size:35px;
+	color:green;
+	background:rgba(56,160,158,0.5);
+	border-left:15px solid green;
+	border-right:15px solid green;
+	font-weight:bold;
+}
+.noarticletext-block{
+	background:rgb(253,198,0,0.5);
+	border:2px solid rgb(59,59,59);
+	border-radius:10px;
+	padding:10px;
+}
+.moveddeleted-notice-header{
+	font-size:35px;
+	color:red;
+	background:rgba(249,0,89,0.5);
+	border-left:15px solid red;
+	border-right:15px solid red;
+	font-weight:bold;
+}
+.entityentry{
+    border-radius: 0px;
+    background: #f0f0f0cc;
+    padding:10px;
+    margin:0.3em 0.3em 0.3em;
+    box-shadow: 0 2px 2px rgba(0,0,0,0.1);
+    transition:all 0.3s ease-in-out;
+}
+.entityentry:hover{
+    transform: translate(-5px, -3px);
+    background: #eeeeeebb;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+.entityentry:active{
+    transform: scale(0.95);}
+/* 夜间适配 */
+/* 夜间适配 - 基础变量定义 */
+.theme-fandomdesktop-dark {
+    --theme-page-background-color: #121212;
+    --theme-page-background-color--secondary: #1a1a1a;
+    --theme-page-text-color: #e0e0e0;
+    --theme-link-color: #ffffff;
+    --theme-border-color: #333333;
+    --theme-sticky-nav-background-color: #222222;
+}
+
+/* 夜间适配 - 页面主体背景与文字 */
+.theme-fandomdesktop-dark #WikiaPageBackground,
+.theme-fandomdesktop-dark .WikiaSiteWrapper,
+.theme-fandomdesktop-dark .WikiaPage,
+.theme-fandomdesktop-dark .page-content,
+.theme-fandomdesktop-dark .WikiaArticle {
+    background-color: var(--theme-page-background-color) !important;
+    color: var(--theme-page-text-color) !important;
+}
+
+/* 夜间适配 - 次要区域（文本框、侧边栏等） */
+.theme-fandomdesktop-dark .textmain,
+.theme-fandomdesktop-dark .mbox,
+.theme-fandomdesktop-dark .documentation,
+.theme-fandomdesktop-dark #WikiaRail,
+.theme-fandomdesktop-dark #WikiaSidebar,
+.theme-fandomdesktop-dark #WikiaFooter {
+    background-color: var(--theme-page-background-color--secondary) !important;
+    color: var(--theme-page-text-color) !important;
+    border-color: var(--theme-border-color);
+}
+
+/* 夜间适配 - 链接样式 */
+.theme-fandomdesktop-dark a,
+.theme-fandomdesktop-dark a:hover,
+.theme-fandomdesktop-dark a:active,
+.theme-fandomdesktop-dark a:visited,
+.theme-fandomdesktop-dark #WikiaFooter .footer a,
+.theme-fandomdesktop-dark #WikiaFooter .fandom-bottom-footer a {
+    color: var(--theme-link-color);
+    text-decoration: inherit !important;
+}
+
+/* 夜间适配 - 特定容器阴影与边框 */
+.theme-fandomdesktop-dark .mbox,
+.theme-fandomdesktop-dark .documentation {
+    border: 1px solid var(--theme-border-color);
+    box-shadow: 0 0 5px rgba(0,0,0,0.5);
+}
+
+/* 夜间适配 - 表格样式 */
+.theme-fandomdesktop-dark table,
+.theme-fandomdesktop-dark th,
+.theme-fandomdesktop-dark td {
+    background-color: var(--theme-page-background-color--secondary);
+    color: var(--theme-page-text-color);
+    border: 1px solid var(--theme-border-color);
+}
+
+/* 夜间适配 - 页面背景图片清除 */
+.theme-fandomdesktop-dark .page-background,
+.theme-fandomdesktop-dark #WikiaPageBackground:before,
+.theme-fandomdesktop-dark #WikiaPageBackground:after {
+    background-color: var(--theme-page-background-color) !important;
+    background-image: none !important;
+}
+
+/* 夜间适配 - 实体条目样式 */
+.theme-fandomdesktop-dark .entityentry {
+    background-color: #2a2a2a !important;
+    font-size: 18px !important;
+}
+
+/* 夜间适配 - 特定带圆角的居中区域 */
+.theme-fandomdesktop-dark center[style*="border-radius: 10px"] {
+    background: #000;
+}
+
+/* 夜间适配 - 特定背景色div（浅灰背景适配） */
+.theme-fandomdesktop-dark div[style*="background:#e3e3e3ee"] {
+    background: #1a1a1a;
+    color: #fff !important;
+    text-shadow: 0 0 3px rgba(255,255,255,0.8) !important;
+}
+
+/* 夜间适配 - 特定背景色div（中灰背景适配） */
+.theme-fandomdesktop-dark div[style*="background:#cdcdcdee"] {
+    background: #000;
+    color: #fff !important;
+    text-shadow: 0 0 5px rgba(255,255,255,0.9);
+}
