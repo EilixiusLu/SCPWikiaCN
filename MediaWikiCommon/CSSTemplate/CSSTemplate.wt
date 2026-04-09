@@ -1,0 +1,5 @@
+<!--Wikitext CSS模板本身-->
+
+<includeonly>{{#invoke:CSS|import_css}}</includeonly>
+
+<noinclude>{{Documentation}}</noinclude>
